@@ -9,7 +9,7 @@ import sys
 import xbmc 
 import xbmcgui 
 import xbmcplugin 
-import urllib,urllib2 
+import urllib.request, urllib.parse, urllib.error,urllib.request,urllib.error,urllib.parse 
 import xbmcaddon
 import json
 
