@@ -4,7 +4,7 @@
 import os
 import sys
 import xbmcaddon
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import time
 
 
