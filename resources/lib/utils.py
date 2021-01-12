@@ -26,8 +26,9 @@ class HTTPCommunicator :
         # Compressed (gzip) response...
         if f.headers.get( "content-encoding" ) == "gzip" :
             httpGzippedData = f.read()
-            stringIO        = io.StringIO( httpGzippedData )
-            gzipper         = gzip.GzipFile( fileobj = stringIO )
+            from io import BytesIO
+            bytesIO        = io.BytesIO( httpGzippedData )
+            gzipper         = gzip.GzipFile( fileobj = bytesIO )
             httpData        = gzipper.read()
             
             # Debug
