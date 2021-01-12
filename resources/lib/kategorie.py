@@ -10,7 +10,7 @@ import xbmc
 import xbmcgui
 import xbmcplugin
 import xbmcaddon
-import json, urllib2
+import json, urllib.request, urllib.error, urllib.parse
 
 __id__       = 'plugin.audio.open_FM';
 __settings__ = xbmcaddon.Addon(id=__id__)
