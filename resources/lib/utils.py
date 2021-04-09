@@ -1,5 +1,4 @@
 import gzip
-import io
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -31,10 +30,7 @@ class HTTPCommunicator:
 
         # Compressed (gzip) response...
         if f.headers.get("content-encoding") == "gzip":
-            httpGzippedData = f.read()
-            stringIO = io.StringIO(httpGzippedData)
-            gzipper = gzip.GzipFile(fileobj=bytesIO)
-            httpData = gzipper.read()
+            httpData = gzip.decompress(f.read())
 
             # Debug
             # print "[HTTP Communicator] GET %s" % url
@@ -48,4 +44,4 @@ class HTTPCommunicator:
         f.close()
 
         # Return value
-        return httpData
+        return str(httpData, "utf-8")
