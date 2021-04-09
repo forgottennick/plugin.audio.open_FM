@@ -9,6 +9,7 @@ import urllib.parse
 import urllib.request
 
 import xbmcaddon
+import xbmcvfs
 
 # intro
 __plugin__ = "Open FM"
@@ -17,10 +18,10 @@ __date__ = "21.01.2017"
 __version__ = "2.0.1"
 __id__ = "plugin.audio.open_FM"
 __settings__ = xbmcaddon.Addon(id=__id__)
-__datapath__ = xbmc.translatePath("special://profile/addon_data/%s" % (__id__))
+__datapath__ = xbmcvfs.translatePath("special://profile/addon_data/%s" % (__id__))
 
 # Libraries (internal)
-lib_dir = xbmc.translatePath(
+lib_dir = xbmcvfs.translatePath(
     os.path.join(__settings__.getAddonInfo("path"), "resources", "lib")
 )
 sys.path.append(lib_dir)

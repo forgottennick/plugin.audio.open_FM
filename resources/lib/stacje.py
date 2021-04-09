@@ -15,11 +15,12 @@ import xbmc
 import xbmcaddon
 import xbmcgui
 import xbmcplugin
+import xbmcvfs
 
 #
 __id__ = "plugin.audio.open_FM"
 __settings__ = xbmcaddon.Addon(id=__id__)
-__datapath__ = xbmc.translatePath("special://profile/addon_data/%s" % (__id__))
+__datapath__ = xbmcvfs.translatePath("special://profile/addon_data/%s" % (__id__))
 
 #
 cached_json = os.path.join(__datapath__, "stations.json")
