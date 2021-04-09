@@ -20,7 +20,7 @@ class HTTPCommunicator :
             opener = urllib.request.build_opener(httpHandler)
             f = opener.open(request)
         # Exception
-        except urllib.error.HTTPError, e :
+        except urllib.error.HTTPError as e :
             raise Exception( "HTTP Error %u: %s" % ( e.code, HTTP_REPONSES[ e.code ] ) )
 
         # Compressed (gzip) response...
