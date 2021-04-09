@@ -36,15 +36,18 @@ class Main:
         for kanal in json_data["channels"]:
             if kanal["group_id"] == ID_kat:
                 # print kanal['logo']['url']
-                li = xbmcgui.ListItem(
-                    kanal["name"],
-                    iconImage="DefaultMusicSongs.png",
-                    thumbnailImage=kanal["logo"]["url"].replace("71x71", "500x500"),
+                li = xbmcgui.ListItem(kanal["name"])
+                li.setArt(
+                    {
+                        "thumb": kanal["logo"]["url"].replace("71x71", "500x500"),
+                        "icon": "DefaultMusicSongs.png",
+                    }
                 )
+
                 url = "http://stream.open.fm/%s" % (kanal["id"])
                 xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, isFolder=False)
 
-                # Disable sorting...
+        # Disable sorting...
         xbmcplugin.addSortMethod(
             handle=int(sys.argv[1]), sortMethod=xbmcplugin.SORT_METHOD_NONE
         )
